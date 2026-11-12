@@ -45,6 +45,8 @@ Users interact with the kinetic surface around 40cm away from the frame, where a
 | **5** | **Two hands raised** | All three cams rotate at full speed simultaneously, generating rapid and multi-frequency interference waves across the entire surface. This represents a 'storm'. |
 | **6** | **One index finger raised** | All three motors stop immediately and coil power is released. |
 
+![interaction_table](Image/interaction_table.png)
+
 ---
 
 ## 2. Mechanical Design & Fabrication
