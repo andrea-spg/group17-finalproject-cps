@@ -82,11 +82,11 @@ ZHIRU PHOTOS OF FRAME
 - * **3D printed parts connecting frame:** (ZHIRU WRITE HERE) BEARINGS, ETC
 
 - **Top and bottom parts for frame elevation and to add fabric frame:** ..ZHIRU
-- 
+  
 
 
 
-* **Flexible TPU Textile:** 
+- **Flexible TPU Textile:** 
 Designed in Grasshopper, the pattern varies the height and diameter of printed units to create a more natural wave-like appearance. Flexible TPU 90A units are printed onto organza layered over stretch fabric. Secured around the frame with enough slack to move, the textile rises and falls with the rotating cams.
 
 1. Parametric Generation
