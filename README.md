@@ -27,7 +27,7 @@ Our intention to achieve a minimalistic yet elegant design drove our design choi
 The complete installation measures `[XX cm]` wide, `[XX cm]` long, and `[XX cm]` high (ZHIRU). Every material and structural choice was made to reinforce the core design concept:
 
 - **Transparent Acrylic Frame:** (ZHIRU WRITE HERE) Laser-cut clear acrylic exposes the three rotating cams and stepper motors on a side, making the mechanical motion an intentional part of the visual experience.
-- **3D-Printed Flexible TPU Fabric:** (BIANCA WRITE HERE) Made from two flexible layers printed in thermoplastic polyurethane (TPU), the top surface turns the upward push of the cams beneath into soft, rolling waves that catch ambient light naturally.
+- **3D-Printed Flexible TPU Fabric:** Flexible TPU units are printed onto organza layered over stretch fabric. The cams lift the textile from below, creating gentle waves and shifting patterns of light and shadow.
 
 Interaction is designed to be immediate and intuitive without wearables or physical contact. When no user is present, the fabric moves in a slow, continuous idle ripple. Moving an open palm across the left, centre, or right set threshold areas of the camera shifts the wave intensity to the corresponding section of the fabric, raising two hands drives all three sections at full speed resembling a 'storm', and raising a single index finger pauses the system.
 
@@ -35,13 +35,7 @@ Interaction is designed to be immediate and intuitive without wearables or physi
 > **[INSERT PHOTO: Clear hero photograph of the completed physical installation showing the transparent frame, the two differently shaped cams, and the TPU 3D-printed fabric on top]**
 
 
-
 ![closerview3](Image/closerview3.png)
-
-
-
-
-
 
 
 
