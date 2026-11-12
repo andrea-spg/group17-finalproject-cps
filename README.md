@@ -46,7 +46,6 @@ Interaction is designed to be immediate and intuitive without wearables or physi
 
 
 
-
 ### User Interaction Model
 Users interact with the kinetic surface around 40cm away from the frame, where a webcam located in the frame records any user hand gesture. 
 ![interaction_table](Image/interaction_table.png)
