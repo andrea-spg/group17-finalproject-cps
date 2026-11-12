@@ -21,11 +21,18 @@
 ## 1. Overall Concept & User Interaction
 
 ### Design Concept & Materiality
-**Hand-Controlled Wave Fabric** is an interactive kinetic textile installation that translates touchless human hand gestures into varying, organic wave motion across a fabric with a 3D-printed patterned surface. The installation consists of an acrylic translucent structural frame with a flexible TPU 3D-printed fabric resting directly above three differently shaped cam mechanisms, which are being rotated by three stepper motors in parallel. 
+Inspired by the unpredictability and movement of the ocean, our **Hand-Controlled Wave Fabric** is an interactive kinetic textile installation that translates touchless human hand gestures into varying, organic wave motion across a fabric with a 3D-printed patterned surface. 
+Our intention to achieve a minimalistic yet elegant design drove our design choices; a laser-cut transparent acrylic translucent structural frame with a flexible TPU 3D-printed fabric resting directly above three differently shaped cam mechanisms, which are being rotated by three stepper motors in parallel. We considered that this design would keep attention on the movement itself. 
 
-* **TPU 3D-Printed Textile:** BIANCA WRITE ON TOP OF THIS Printed in flexible thermoplastic polyurethane (TPU), the top surface combines elastic compliance with structural memory, enabling it to deform smoothly over the rotating cams beneath without tearing, snagging, or losing tension. 
-* **Frame Enclosure:** ZHIRU WRITE HERE Constructed from laser-cut clear acrylic, the frame showcases the internal cam-and-stepper assembly as an integral visual element while rigidly aligning the three stepper motors beneath the textile.
-* **3D printed parts and details:** ZHIRU WRITE HERE
+The complete installation measures `[XX cm]` wide, `[XX cm]` long, and `[XX cm]` high (ZHIRU). Every material and structural choice was made to reinforce the core design concept:
+
+- **Transparent Acrylic Frame:** (ZHIRU WRITE HERE) Laser-cut clear acrylic exposes the three rotating cams and stepper motors on a side, making the mechanical motion an intentional part of the visual experience.
+- **3D-Printed Flexible TPU Fabric:** (BIANCA WRITE HERE) Made from two flexible layers printed in thermoplastic polyurethane (TPU), the top surface turns the upward push of the cams beneath into soft, rolling waves that catch ambient light naturally.
+- * **3D printed parts and details:** (ZHIRU WRITE HERE)
+
+### User Interaction Justification
+Interaction is designed to be immediate and intuitive without wearables or physical contact. When no user is present, the fabric moves in a slow, continuous idle ripple. Moving an open palm across the left, centre, or right set threshold areas of the camera shifts the wave intensity to the corresponding section of the fabric, raising two hands drives all three sections at full speed resembling a 'storm', and raising a single index finger pauses the system.
+
 
 > **[INSERT PHOTO: Clear hero photograph of the completed physical installation showing the transparent frame, the three differently shaped cams, and the TPU 3D-printed fabric on top]**
 
@@ -34,22 +41,39 @@ Users interact with the kinetic surface around 40cm away from the frame, where a
 | Gesture Class | User Action | Physical & Visual Response on the Fabric |
 | :---: | :--- | :--- |
 | **1** | **No hand detected** | Neutral state. All three cams rotate slowly, producing a calm, continuous baseline ripple that signals the system is active. |
-| **2** | **Open palm on far left** | Cam 1 accelerates while Cams 2 & 3 rotate slowly, causing a defined wave to be present concentrating wave energy on the left side of the textile. |
-| **3** | **Open palm in centre** | Cam 2 accelerates (`600` steps/s) while Cams 1 & 3 rotate slowly, creating a central crest across the middle of the fabric. |
-| **4** | **Open palm on far right** | Cam 3 accelerates (`600` steps/s) while Cams 1 & 2 rotate slowly, shifting the peak wave motion to the right side. |
-| **5** | **Two hands raised** | All three cams rotate at full speed (`600` steps/s) simultaneously, generating rapid, multi-frequency interference waves across the entire surface. |
-| **6** | **One index finger raised** | All three motors stop immediately and coil power is released, freezing the textile in place. |
+| **2** | **Open palm on far left** | Cam 1 accelerates while Cams 2 & 3 rotate slowly, causing a defined wave to be present on the left side of the fabric. |
+| **3** | **Open palm in centre** | Cam 2 accelerates while Cams 1 & 3 rotate slowly, creating a central crest across the middle of the fabric. |
+| **4** | **Open palm on far right** | Cam 3 accelerates while Cams 1 & 2 rotate slowly, shifting the peak wave motion to the right side. |
+| **5** | **Two hands raised** | All three cams rotate at full speed simultaneously, generating rapid and multi-frequency interference waves across the entire surface. This represents a 'storm'. |
+| **6** | **One index finger raised** | All three motors stop immediately and coil power is released. |
 
 ---
 
 ## 2. Mechanical Design & Fabrication
 
-Rather than modifying a standard multi-axis robot arm, we engineered a dedicated **three-cam kinetic actuation system** tailored specifically to convert continuous rotary motion into varied vertical and travelling wave profiles across a flexible TPU textile.
+Focusing on making our project mechanically simple and elegant, we engineered a dedicated **three-cam kinetic actuation system**, where continuous rotary motion is converted into varied vertical and travelling wave profiles across a flexible TPU textile. The mechanism reaches a fluid, organic deformation by combining two asymmetric rotary cams with a flexible 3D-printed TPU fabric whose own stretch and tensioned weight pull the surface back down into place after each cam pushes it upward.
+
+### Cam Mechanisms, Motion Transmission & Compliant Fabric
 
 ### Cam Mechanisms & Motion Transmission
-* **Three Distinct Cam Profiles:** Three custom cams featuring **different lobe geometries and eccentric radii** are mounted directly onto the output shafts of three `28BYJ-48` stepper motors. Because each cam possesses a unique radial profile (varying lift height and lobe count per revolution), even when all three motors rotate at the same speed, they displace the TPU textile out of phase—creating complex, organic wave interference rather than uniform mechanical oscillation.
-* **Direct Rotary-to-Surface Contact:** Smooth, low-friction cam perimeters press upward against the underside of the TPU printed fabric, translating continuous 360° stepper rotation into smooth vertical displacement without linkage backlash.
-* **Why Stepper Motors Over Servo Motors:** Standard hobby servos are limited to 180° oscillatory sweeps and suffer from audible gear jitter at low speeds. Geared stepper motors controlled via the `AccelStepper` library enable uninterrupted 360° cam rotation and smooth, quiet velocity transitions.
+- **Two Distinct Cam Profiles:** Two custom cams featuring **different shapes and off-centre profiles** are mounted directly onto the 40cm acrylic rods, and then placed into the holders of three `28BYJ-48` stepper motors. As each cam has a unique radial profile due to their angled offsets and different heights, the rotation of these cams displace the TPU textile out of phase, mirroring the organic asymmetry and natural turbulence of the ocean instead of predictable, repetitive motion.
+
+- **Direct Rotary-to-Surface Contact:** Smooth, wood laser-cut cam perimeters press upwards the underside of the TPU printed fabric, translating continuous 360° stepper rotation into smooth vertical displacement. Friction with the fabric was reduced by sanding the cams perimiters and adding an additional layer of fabric below the first TPU printed layers. 
+- **Why Stepper Motors Over Servo Motors:** Standard hobby servos can only sweep back and forth within 180° and tend to jitter noisily at slow speeds. Using geared stepper motors with the `AccelStepper` library allows full, continuous 360° cam rotation and smooth, quiet speed changes.
+
+### Support Structure & Compliant Fabric Design
+
+![Transparent acrylic frame assembly](images/frame.jpg)
+![3D-printed TPU fabric surface](images/fabric.jpg)
+
+- **Transparent Frame & Motor Alignment:** Laser-cut clear acrylic panels interlock via precision mounting slots (`[specify dimensions/tolerances, e.g., 5 mm slots]`) to hold the three stepper motors at fixed intervals beneath the textile so they cannot shift or vibrate under load.
+- **Keyed Shaft Couplers:** Each 3D-printed PLA cam includes a custom press-fit hub shaped to match the flattened `5 mm` double-D shaft of the `28BYJ-48` stepper motor, preventing rotational slip during continuous operation.
+
+
+
+
+- **TPU Fabric as an Elastic Return Surface:** Mechanically, the 3D-printed TPU textile acts as an **elastic return layer**. As the cams only push the fabric upwards, the natural stretch and edge tension of the TPU pull the surface smoothly back into place between cam peaks.
+- **Why Stepper Motors Over Servo Motors:** Standard hobby servos can only sweep back and forth within 180° and tend to jitter noisily at slow speeds. Using geared stepper motors with the `AccelStepper` library allows full, continuous 360° cam rotation and smooth, quiet speed changes.
 
 ### Materials & Fabrication Process
 * **Transparent Frame:** Laser-cut clear acrylic panels (`[specify thickness, e.g., 5 mm / 6 mm]`) interlocked with precision mounting slots to hold the three stepper motors rigidly beneath the textile while maintaining complete visual transparency.
