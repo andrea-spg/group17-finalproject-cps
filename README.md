@@ -36,9 +36,11 @@ Interaction is designed to be immediate and intuitive without wearables or physi
 
 
 
-<img src="Image/frontview_cam.png" alt="frontview_cam" width="50%">
-<img src="Image/closerview3.png" alt="closerview3" width="50%">
-<img src="Image/closerview5.png" alt="closerview5" width="50%">
+<img src="Image/closerview7.png" alt="closerview7" width="40%">
+<img src="Image/frontview_cam.png" alt="frontview_cam" width="40%">
+<img src="Image/closerview3.png" alt="closerview3" width="40%">
+<img src="Image/closerview5.png" alt="closerview5" width="40%">
+
 
 
 
@@ -67,7 +69,6 @@ Focusing on making our project mechanically simple and elegant, we engineered a 
 -* **Rod and bearing rotation:** Each cam row is connected by a 40cm squared rod of dimensions 5mm x 5mm. This rod is fitted into...ZHIRU
 
 
-BIANCA photos of fabric
 ZHIRU PHOTOS OF FRAME
 
   ### Fabrication
@@ -76,9 +77,22 @@ ZHIRU PHOTOS OF FRAME
 
 - **Top and bottom parts for frame elevation and to add fabric frame:** ..ZHIRU
 
-* **Flexible TPU Textile:** (BIANCA) 3D-printed in flexible TPU filament (`[specify Shore hardness if known, e.g., 95A]`) and anchored along the upper perimeter of the transparent frame so the surface flexes cleanly over each cam peak and returns smoothly under its own elasticity.
 
-* - - **Frame to hold and tension fabric:** ..BIANCA
+
+* **Flexible TPU Textile:** The surface combines flexible TPU 90A units printed onto organza with a stretch-fabric backing. Secured around the top of the transparent frame, it bends over the rotating cams and settles as they lower.
+
+BIANCA photos of fabric
+The image of the fabric with tpu
+
+
+
+* - - **Frame to hold and tension fabric:** Holes around the frame allow the fabric to be stitched in place, with enough slack for the cams to lift and lower it freely. A top frame is then secured over the stitched frame with four screws to hold the assembly together.
+
+   
+The image of the frame and fabric
+
+
+
    
 * - - **Magnetic boat piece for visual effect:** ZHIRU
 
