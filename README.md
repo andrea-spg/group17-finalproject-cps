@@ -36,15 +36,6 @@ Interaction is designed to be immediate and intuitive without wearables or physi
 
 ### User Interaction Model
 Users interact with the kinetic surface around 40cm away from the frame, where a webcam located in the frame records any user hand gesture. 
-| Gesture Class | User Action | Physical & Visual Response on the Fabric |
-| :---: | :--- | :--- |
-| **1** | **No hand detected** | Neutral state. All three cams rotate slowly, producing a calm, continuous baseline ripple that signals the system is active. |
-| **2** | **Open palm on far left** | Cam 1 accelerates while Cams 2 & 3 rotate slowly, causing a defined wave to be present on the left side of the fabric. |
-| **3** | **Open palm in centre** | Cam 2 accelerates while Cams 1 & 3 rotate slowly, creating a central crest across the middle of the fabric. |
-| **4** | **Open palm on far right** | Cam 3 accelerates while Cams 1 & 2 rotate slowly, shifting the peak wave motion to the right side. |
-| **5** | **Two hands raised** | All three cams rotate at full speed simultaneously, generating rapid and multi-frequency interference waves across the entire surface. This represents a 'storm'. |
-| **6** | **One index finger raised** | All three motors stop immediately and coil power is released. |
-
 ![interaction_table](Image/interaction_table.png)
 
 ---
