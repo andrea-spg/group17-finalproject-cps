@@ -34,9 +34,9 @@ Interaction is designed to be immediate and intuitive without wearables or physi
 
 > **[INSERT PHOTO: Clear hero photograph of the completed physical installation showing the transparent frame, the two differently shaped cams, and the TPU 3D-printed fabric on top]**
 
+<img src="Image/closerview3.png" alt="closerview3" width="40%">
 <img src="Image/closerview7.png" alt="closerview7" width="40%">
 <img src="Image/frontview_cam.png" alt="frontview_cam" width="40%">
-<img src="Image/closerview3.png" alt="closerview3" width="40%">
 <img src="Image/closerview5.png" alt="closerview5" width="40%">
 <img src="Image/cam_perspective.jpg" alt="cam_perspective" width="40%">
 
