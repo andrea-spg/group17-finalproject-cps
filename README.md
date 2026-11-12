@@ -41,9 +41,9 @@ Interaction is designed to be immediate and intuitive without wearables or physi
 
 <img src="Image/closerview2.png" alt="closerview2" width="40%">
 <img src="Image/closerview8.png" alt="closerview8" width="40%">
-<img src="Image/closerview5.png" alt="closerview5" width="40%">
-<img src="Image/cam_perspective.jpg" alt="cam_perspective" width="40%">
 
+<img src="Image/cam_perspective.jpg" alt="cam_perspective" width="40%">
+<img src="Image/closerview5.png" alt="closerview5" width="40%">
 
 
 ### User Interaction Model
