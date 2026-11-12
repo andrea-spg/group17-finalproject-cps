@@ -36,7 +36,6 @@ Interaction is designed to be immediate and intuitive without wearables or physi
 
 
 
-
 ![closerview3](Image/closerview3.png)
 
 
