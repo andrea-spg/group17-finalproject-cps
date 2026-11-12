@@ -71,6 +71,8 @@ Focusing on making our project mechanically simple and elegant, we engineered a 
 
 ZHIRU PHOTOS OF FRAME
 
+
+
   ### Fabrication
 
 - * **3D printed parts connecting frame:** (ZHIRU WRITE HERE) BEARINGS, ETC
@@ -79,10 +81,40 @@ ZHIRU PHOTOS OF FRAME
 
 
 
-* **Flexible TPU Textile:** The surface combines flexible TPU 90A units printed onto organza with a stretch-fabric backing. Secured around the top of the transparent frame, it bends over the rotating cams and settles as they lower.
+* **Flexible TPU Textile:** 
+Designed in Grasshopper, the pattern varies the height and diameter of printed units to create a more natural wave-like appearance. Flexible TPU 90A units are printed onto organza layered over stretch fabric. Secured around the frame with enough slack to move, the textile rises and falls with the rotating cams.
 
-BIANCA photos of fabric
-The image of the fabric with tpu
+1. Parametric Generation
+   
+<img src="Image/grasshopper.png" alt="grasshopper" width="60%">
+
+<img src="Image/grasshopper_perspective.png" alt="grasshopper_perspective" width="60%">
+
+<img src="Image/grasshopper_3vies.png" alt="grasshopper_3vies" width="60%">
+
+
+
+
+2. 3D print Settings
+
+a. Select the printer model and TPU filament, add a pause after layer 2, and slice the plate.
+<p align="center">
+  <img src="Image/print_setting1.png" alt="print_setting1" width="48%">
+  <img src="Image/print_setting2.png" alt="print_setting2" width="48%">
+</p>
+
+b. Once layer 2 is complete, secure the fabric with magnets, then resume printing.
+<p align="center">
+  <img src="Image/printing1.png" alt="printing1" width="30%">
+  <img src="Image/printing2.png" alt="printing2" width="30%">
+  <img src="Image/printing3.png" alt="printing3" width="30%">
+</p>
+
+
+
+
+
+
 
 
 
@@ -90,6 +122,8 @@ The image of the fabric with tpu
 
    
 The image of the frame and fabric
+
+
 
 
 
