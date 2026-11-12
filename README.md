@@ -82,6 +82,7 @@ ZHIRU PHOTOS OF FRAME
 - * **3D printed parts connecting frame:** (ZHIRU WRITE HERE) BEARINGS, ETC
 
 - **Top and bottom parts for frame elevation and to add fabric frame:** ..ZHIRU
+- 
 
 
 
