@@ -34,13 +34,11 @@ Interaction is designed to be immediate and intuitive without wearables or physi
 
 > **[INSERT PHOTO: Clear hero photograph of the completed physical installation showing the transparent frame, the two differently shaped cams, and the TPU 3D-printed fabric on top]**
 
-
-
 <img src="Image/closerview7.png" alt="closerview7" width="40%">
 <img src="Image/frontview_cam.png" alt="frontview_cam" width="40%">
 <img src="Image/closerview3.png" alt="closerview3" width="40%">
 <img src="Image/closerview5.png" alt="closerview5" width="40%">
-
+<img src="Image/cam_perspective.jpg" alt="cam_perspective" width="40%">
 
 
 
@@ -120,10 +118,8 @@ b. Once layer 2 is complete, secure the fabric with magnets, then resume printin
 
 * - - **Frame to hold and tension fabric:** Holes around the frame allow the fabric to be stitched in place, with enough slack for the cams to lift and lower it freely. A top frame is then secured over the stitched frame with four screws to hold the assembly together.
 
-   
-The image of the frame and fabric
-
-
+<img src="Image/sewing.jpg" alt="sewing" width="60%">
+<img src="Image/with_top_frame.jpg" alt="with_top_frame" width="60%">
 
 
 
