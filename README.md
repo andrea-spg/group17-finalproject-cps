@@ -91,11 +91,11 @@ Designed in Grasshopper, the pattern varies the height and diameter of printed u
 
 1. Parametric Generation
    
-<img src="Image/grasshopper.png" alt="grasshopper" width="60%">
+<img src="Image/grasshopper.png" alt="grasshopper" width="100%">
 
-<img src="Image/grasshopper_perspective.png" alt="grasshopper_perspective" width="60%">
+<img src="Image/grasshopper_perspective.png" alt="grasshopper_perspective" width="100%">
 
-<img src="Image/grasshopper_3vies.png" alt="grasshopper_3vies" width="60%">
+<img src="Image/grasshopper_3vies.png" alt="grasshopper_3vies" width="100%">
 
 
 
