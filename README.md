@@ -21,20 +21,20 @@
 ## 1. Overall Concept & User Interaction
 
 ### Design Concept & Materiality
-**Hand-Controlled Wave Fabric** is an interactive kinetic textile installation that translates touchless human hand gestures into varying, organic wave motion across a fabric with a 3D-printed patterned surface. Rhe installation consists of an acrylic translucent structural frame with a flexible TPU 3D-printed fabric resting directly above three differently shaped rotary cam mechanisms. The transparent frame exposes the mechanics of the three cams beneath, while the TPU textile transforms discrete rotational speeds into smooth, continuous wave patterns.
+**Hand-Controlled Wave Fabric** is an interactive kinetic textile installation that translates touchless human hand gestures into varying, organic wave motion across a fabric with a 3D-printed patterned surface. The installation consists of an acrylic translucent structural frame with a flexible TPU 3D-printed fabric resting directly above three differently shaped cam mechanisms, which are being rotated by three stepper motors in parallel. 
 
-* **TPU 3D-Printed Textile:** Printed in flexible thermoplastic polyurethane (TPU), the top surface combines elastic compliance with structural memory, enabling it to deform smoothly over the rotating cams beneath without tearing, snagging, or losing tension.
-* **Transparent Enclosure:** Constructed from laser-cut clear acrylic, the frame showcases the internal cam-and-stepper assembly as an integral visual element while rigidly aligning the three stepper motors beneath the textile.
+* **TPU 3D-Printed Textile:** BIANCA WRITE ON TOP OF THIS Printed in flexible thermoplastic polyurethane (TPU), the top surface combines elastic compliance with structural memory, enabling it to deform smoothly over the rotating cams beneath without tearing, snagging, or losing tension. 
+* **Frame Enclosure:** ZHIRU WRITE HERE Constructed from laser-cut clear acrylic, the frame showcases the internal cam-and-stepper assembly as an integral visual element while rigidly aligning the three stepper motors beneath the textile.
+* **3D printed parts and details:** ZHIRU WRITE HERE
 
 > **[INSERT PHOTO: Clear hero photograph of the completed physical installation showing the transparent frame, the three differently shaped cams, and the TPU 3D-printed fabric on top]**
 
 ### User Interaction Model
-Users interact with the kinetic surface from a natural standing or seated distance in front of a webcam, requiring no wearables, handheld controllers, or physical contact:
-
+Users interact with the kinetic surface around 40cm away from the frame, where a webcam located in the frame records any user hand gesture. 
 | Gesture Class | User Action | Physical & Visual Response on the Fabric |
 | :---: | :--- | :--- |
-| **1** | **No hand detected** | All three cams rotate slowly (`200` steps/s), producing a calm, continuous baseline ripple that signals the system is active. |
-| **2** | **Open palm on far left** | Cam 1 accelerates (`600` steps/s) while Cams 2 & 3 rotate slowly, concentrating wave energy on the left side of the textile. |
+| **1** | **No hand detected** | Neutral state. All three cams rotate slowly, producing a calm, continuous baseline ripple that signals the system is active. |
+| **2** | **Open palm on far left** | Cam 1 accelerates while Cams 2 & 3 rotate slowly, causing a defined wave to be present concentrating wave energy on the left side of the textile. |
 | **3** | **Open palm in centre** | Cam 2 accelerates (`600` steps/s) while Cams 1 & 3 rotate slowly, creating a central crest across the middle of the fabric. |
 | **4** | **Open palm on far right** | Cam 3 accelerates (`600` steps/s) while Cams 1 & 2 rotate slowly, shifting the peak wave motion to the right side. |
 | **5** | **Two hands raised** | All three cams rotate at full speed (`600` steps/s) simultaneously, generating rapid, multi-frequency interference waves across the entire surface. |
