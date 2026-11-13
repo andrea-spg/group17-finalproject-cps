@@ -221,17 +221,17 @@ For the cam files, engrave `ENGRAVE_ID`; cut `CUT_LIGHTEN` and `0`.
 | Component | Qty | Justification |
 | :--- | :---: | :--- |
 | **Arduino Nano Every** | 1 | 5V logic compatibility, and 12 available I/O pins (`D2–D5`, `D8–D11`, `A0–A3`) to drive all three stepper motors simultaneously. |
-| **28BYJ-48 Stepper Motor (5V)** | 3 | Unipolar stepper motor which has internal `64:1` planetary gear, reduction delivering a high torque to lift the tensioned TPU textile smoothly over the cam shapes. |
+| **28BYJ-48 Stepper Motor (5V)** | 3 | Unipolar stepper motor which has internal `64:1` planetary gear, delivering a high torque to lift the TPU textile smoothly over the cam shapes. |
 | **ULN2003 Darlington Driver Board** | 3 | Acts as a power amplifier and electronic switchboard between the Arduino Nano and the motor. |
-**USB-C Power Bank & Imperial DSDE Power Board** | 1 | Portable 5 V power bank connected via USB-C to the custom Imperial DSDE Power Board, providing regulated 5 V and 3.3 V breadboard rails, a physical ON/OFF slide switch, and selectable current limiting (`0.5 A` / `2 A`). |
-| **Praktika HD USB Webcam (1280×720p)** | 1 | Wide-angle 720p sensor captures left, centre, and right interaction areas.
+| **USB-C Power Bank & Imperial DSDE Power Board** | 1 | Portable 5 V power bank connected via USB-C to the custom Imperial DSDE Power Board, providing regulated 5 V and 3.3 V breadboard rails, a physical ON/OFF slide switch, and selectable current limiting (`0.5 A` / `2 A`). |
+| **Praktika HD USB Webcam (1280×720p)** | 1 | Wide-angle 720p sensor captures left, centre, and right interaction areas. |
 
 ### Pin Wiring & Electrical Safety
 - **Power Distribution (5 V Rail):** A portable USB-C power bank feeds the **Imperial DSDE Power Board**, which plugs directly into the breadboard power rails. The board's **5 V and GND pins** supply power to all three `ULN2003` stepper driver boards (the `3.3 V` rail is unused).
 - **Common Ground:** The `GND` and `5V` pins on the Power Board area soldered on a veroboard, on the same rail as the `GND` and `5V` rails of all three `ULN2003` drivers and the Arduino Nano Every's `GND` pin.
-- **Cam Motor 1 (Left):** Arduino `D2, D3, D4, D5` $\rightarrow$ ULN2003 #1 (`IN1–IN4`)
-- **Cam Motor 2 (Centre):** Arduino `D8, D9, D10, D11` $\rightarrow$ ULN2003 #2 (`IN1–IN4`)
-- **Cam Motor 3 (Right):** Arduino `A0, A1, A2, A3` $\rightarrow$ ULN2003 #3 (`IN1–IN4`)
+- **Cam Motor 1 (Left):** Arduino `D2, D3, D4, D5` $\rightarrow$ ULN2003 (1) (`IN1–IN4`)
+- **Cam Motor 2 (Centre):** Arduino `D8, D9, D10, D11` $\rightarrow$ ULN2003 (2) (`IN1–IN4`)
+- **Cam Motor 3 (Right):** Arduino `A0, A1, A2, A3` $\rightarrow$ ULN2003 (3) (`IN1–IN4`)
 
 <table border="0" cellpadding="5" cellspacing="0" width="100%">
   <tr>
@@ -251,26 +251,22 @@ For the cam files, engrave `ENGRAVE_ID`; cut `CUT_LIGHTEN` and `0`.
   - **Coil De-Energising:** In Class 6 (All Stop) and automatically upon closing the Processing window, `disableOutputs()` cuts holding current to all twelve motor coils so the steppers do not overheat or drain the power bank when idle.
 
 ### Estimated Power Consumption
-- **Single Motor Load:** Each `28BYJ-48` stepper motor draws approximately `200–240 mA` at `5 V` (`~1.1–1.2 W`) under cam load.
-- 
+
 <p align="center">
   <img src="Image/total power used calculation.jpeg" alt="Total estimated power consumption calculations" width="45%">
 </p>
 
-
-
 ## 4. Software Design & Pipeline
-
-The software pipeline runs autonomously without manual intervention once launched, using a **single unified Arduino sketch** that transitions smoothly across all six modes:
 
 <p align="center">
   <img src="Image/pipeline.drawio.png" alt="Pipeline diagram" width="100%">
 </p>
 
+
 ### Explanation of Each Software Stage
-1. **`Python/hand_to_wekinator.py`:** This code was partially written by Claude Sonnet 5.5. This code captures mirrored HD webcam video and uses MediaPipe's `hand_landmarker.task` model to turn hand landmarks into 3 simple, normalised numbers (hand count, horizontal palm position, and open finger ratio). This keeps tracking reliable regardless of lighting or how far you stand from the camera. It also includes a 5-frame memory buffer (`two_hand_memory`) so brief tracking glitches don't interrupt two-hand gestures, and a centre-zone snap (`0.30 ≤ x ≤ 0.70`) that locks middle-screen hands cleanly into Class 3 before streaming the data to Wekinator over OSC (`/wek/inputs`, port `6448`).
+1. **`Python/hand_to_wekinator.py`:** This code captures mirrored HD webcam video and uses MediaPipe's `hand_landmarker.task` model to turn hand landmarks into 3 simple, normalised numbers. This keeps tracking reliable regardless of lighting or how far you stand from the camera. It also includes a 5-frame memory buffer so brief tracking glitches don't interrupt two-hand gestures, and a centre-zone snap (`0.30 ≤ x ≤ 0.70`) that locks middle-screen hands into Class 3 before streaming the data to Wekinator over OSC (`/wek/inputs`, port `6448`).
 2. **`Wekinator/WekinatorProjectfinal/`:** Configured with **3 inputs**, **1 output** using Wekinator's **All classifiers (default: k-Nearest Neighbour)** setting, and **6 classes**, it classifies incoming features in real time and sends the predicted class (`1`–`6`) over OSC (`/wek/outputs`, port `12000`).
-3.  **`Processing/wave_fabric_bridge/wave_fabric_bridge.pde`:** This code was mostly written by Claude Sonnet 5.5. This code displays the active wave mode on screen and passes commands from Wekinator over USB to the Arduino Serial Monitor. To keep the movement smooth, it waits until Wekinator predicts the same gesture **3 frames in a row (`NEEDED = 3`)** before switching modes, preventing split-second camera glitches from making the motors twitch—and automatically sends `'6'` (`All Stop`) when you close the window so the motors turn off safely.
+3. **`Processing/wave_fabric_bridge/wave_fabric_bridge.pde`:** This code displays the active wave mode on screen and passes commands from Wekinator over USB to the Arduino Serial Monitor. To keep the movement smooth, it waits until Wekinator predicts the same gesture **3 frames in a row (`NEEDED = 3`)** before switching modes, preventing split-second camera glitches from making the motors twitch—and automatically sends `'6'` (`All Stop`) when you close the window so the motors turn off safely.
 4. **`Arduino/waves_final/waves_final.ino`:** We used Claude Sonnet 5.5 to explain the AccelStepper library. We used the `AccelStepper` library to drive all three motors simultaneously without blocking the loop, it listens over USB (`9600` baud) for commands `'1'`–`'6'` from Processing and smoothly switches each cam between slow (`200` steps/s), fast (`600` steps/s), and stopped states (0).
 
 
@@ -278,7 +274,7 @@ The software pipeline runs autonomously without manual intervention once launche
 1. **Install Libraries:**
    - **Arduino IDE:** Install `AccelStepper` via *Sketch → Include Library → Manage Libraries...*.
    - **Processing:** Install `oscP5` via *Sketch → Import Library → Manage Libraries...*.
-   - **Python 3:** Run `pip install opencv-python mediapipe python-osc` in your terminal.
+   - **Python 3:** Run `pip install opencv-python mediapipe python-osc` in the terminal.
 2. **Upload Arduino Firmware:** Connect the Arduino Nano Every via USB, switch on the Imperial DSDE Power Board, and upload `Arduino/waves_final/waves_final.ino`.
 3. **Start Wekinator:** Open `Wekinator/WekinatorProjectfinal/WekinatorProjectfinal.wekproj` in Wekinator and click **Run** (confirm Input port `6448` and Output port `12000`).
 4. **Start Processing Connection:** Open `Processing/wave_fabric_bridge/wave_fabric_bridge.pde`, verify `"COM4"` matches your Arduino's serial port, and click **Run**.
@@ -286,12 +282,10 @@ The software pipeline runs autonomously without manual intervention once launche
    ```bash
    cd Python
    python hand_to_wekinator.py
-
+   ```
 
 
 ## 5. Machine Learning: Training, Evaluation & Reflection
-
-ANDREA ADD WEKINATOR IMAGES
 
 ### Feature Engineering & Training Dataset
 
@@ -300,31 +294,33 @@ Python computes 3 normalised features (`/wek/inputs`) per frame:
 2. **Palm Centre X Coordinate:** Horizontal position of MediaPipe landmark `9` (`0.0` = far left, `0.5` = centre zone, `1.0` = far right).
 3. **Extended Finger Ratio:** Count of raised fingers (index, middle, ring, pinky; each `1` if fingertip-to-wrist distance exceeds middle-joint-to-wrist distance) divided by `4.0` (`0.0` to `1.0`).
 
-Using the Python MediaPipe camera model, approximately 1050 data units were trained for each of the 6 classes, considering hand distance from the camera itself, amount of people in the background and varying lighting conditions. (`Wekinator/WekinatorProjectfinal/current/currentData.arff`):
-These 6 classes map directly to the physical wave behaviours defined in the **User Interaction Model (Section 1)**.
+Using the Python MediaPipe camera model, approximately 1050 data units were trained for each of the 6 classes, considering hand distance from the camera itself and the amount of people in the background.
 
 ### Model Justification & Formal Performance Evaluation
 
-- **Chosen Model:** Wekinator's **All classifiers (default — k-Nearest Neighbour, $k=1$)** configured with **3 inputs** and **1 discrete classifier output** across **6 classes**.
-- **Model Justification:** As our 3 input features give each gesture a distinct numerical signature (for example, `0.25` finger ratio for Class 6 vs `1.00` for Classes 2–4, and `1.0` hand ratio for Class 5), k-NN ($k=1$) works especially well here. It compares live hand inputs to the closest example in our `7,200`-sample dataset, giving near-instant predictions without needing complex neural networks.
-- **Comparison of Feature Preprocessing & Model Performance:**
-  - *Baseline (Raw Unfiltered Coordinates):* In initial tests without feature stabilisation, if the user hovered their palm near the set line thresholds it caused the classifier to rapidly change between Class 2, Class 3, and Class 4. On the contrary, fast two-hand gestures and a singular finger proved to be highly accurate. 
-  - *Refined Pipeline (Zone Snapping + Temporal Filtering):* Dividing the camera into thresholds to detect position (`0.30 ≤ x ≤ 0.70`) combined with a 3-frame debounce filter (`NEEDED = 3`) in Processing eliminated false and quick transitions during testing.
-  - *Cross-Validation Accuracy:* Stratified 5-fold cross-validation on our k-NN ($k=1$) classifier achieved **97.91%** classification accuracy (and **97.89%** under 10-fold cross-validation) across our 6,117 sample recorded dataset (`currentData.arff`), with misclassifications between classes 2, 3 and 4 where the palm moves from one end of the fabric to the other.
+- **Chosen Model:** Wekinator's **All classifiers (default — k-Nearest Neighbour, $k=1$)** configured with 3 inputs and 1 discrete classifier output across 6 classes.
+As our 3 input features give each gesture a distinct numerical signature (for example, `0.25` finger ratio for Class 6 vs `1.00` for Classes 2–4, and `1.0` hand ratio for Class 5), k-NN ($k=1$) is a good classifier, as it not only uses supervised learning but it also compares hand inputs to the closest example in our `6,117`-sample dataset.
+
+- **Iterating our Model & Model Performance:**
+  - In initial tests without establishing features in Python, if the user hovered their palm near the set line thresholds it caused the classifier to rapidly change between Class 2, Class 3, and Class 4. On the contrary, fast two-hand gestures and a singular finger proved to be highly accurate. 
+Dividing the camera into thresholds to detect position (`0.30 ≤ x ≤ 0.70`) combined with a 3-frame debounce filter (`NEEDED = 3`) in Processing eliminated false and quick transitions during testing, making our model much more accurate, specifically in classes 2,3 and 4. 
+  - *Cross-Validation Accuracy:* With a stratified 5-fold cross-validation on our k-NN ($k=1$) classifier, we achieved **97.91%** classification accuracy across our 6,117 sample recorded dataset (`currentData.arff`), with misclassifications between classes 2, 3 and 4 where the palm moves from one end of the fabric to the other.
 
 
 ### Limitations & Future Explorations
-- **Training Camera Mismatch & Environmental Sensitivity:** The current model was trained using an integrated laptop webcam under controlled indoor lighting with all team members wearing identical white lab coats. Variations in focal length, camera angle, background crowd, or user distance can degrade MediaPipe landmark confidence. Future iterations should be recorded directly with the external webcam, as well as considering many background people, hands, distances, angles, clothing, and lighting conditions.
+- **Training Camera Mismatch & Environmental Sensitivity:** The current model was trained using the laptop webcam, with controlled indoor lighting and all of us wearing identical white lab coats. Future iterations should be recorded directly with the external webcam, as well as considering many background people, hands, distances, angles, clothing, and lighting conditions.
 - **Static Poses vs Dynamic Sweep Gestures:** As our 3-feature k-NN model evaluates single-frame hand positions, it cannot distinguish directional sweep gestures or movement velocity, which was our original design goal. Exploring temporal classifiers such as **Dynamic Time Warping (DTW)** in Wekinator or sequence models could enable a more accurate recognition of continuous left-to-right hand sweeps for Classes 2, 3, and 4.
-- **Unidirectional Rotation & Mechanism Complexity:** Currently, all three stepper motors rotate strictly clockwise at fixed speeds, limiting the textile to simple travelling waves. Using `AccelStepper`'s library, we could consider to alter the motors in anticlockwise direction, as well as exploring different cam alignments and amount of motors with a higher power supply to explore different waves such as ripples, standing waves or crashing waves.
+- **Unidirectional Rotation & Mechanism Complexity:** Currently, all three stepper motors rotate strictly clockwise at fixed speeds, limiting the textile to simple travelling waves. Using `AccelStepper`'s library, we could consider to alter the motors in anticlockwise direction, as well as exploring different cam alignments and amount of motors with a higher power supply to explore different waves such as circular ripples, standing waves or crashing waves.
 - **Passive Magnetic Boat vs Active Boat Mechanics:** Right now, the boat rests on the TPU surface with a magnet located underneath the fabric to hold it up, used for aesthetic purposes. Incorporating under-surface mechanical actuation to lift the boat up again if it tilts could be explored.
 - **Different TPU colours:** To further enhance the wave simulation we could consider printing different tones of blue TPU on the fabric rounded ends, to resemble the ocean’s expansive colour pallette onto our installation. An example could be adding white edges to mirror wave foam.
 
 
 
-## 8. External Sources & Libraries Cited
+## 6. External Sources & Libraries Cited
 ### Declaration of AI Use
 
 The six gesture–response diagrams in the Interaction Model section were created from the project's STL models using Python scripts generated with assistance from OpenAI Codex (OpenAI, 2026). 
 
 The assembly guide illustrations were created from the project's CAD models with assistance from ChatGPT (OpenAI, 2026).
+
+Specific pieces of code were vibe coded with Claude sonnet 5.5. This includes most of the Python code and part of the Processing code.
