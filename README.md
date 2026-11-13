@@ -17,8 +17,8 @@
 ## 1. Overall Concept & User Interaction
 
 ### Design Concept & Materiality
-Inspired by the unpredictability and movement of the ocean, our **Hand-Controlled Wave Fabric** is an interactive kinetic textile installation that translates touchless human hand gestures into varying, organic wave motion across a fabric with a 3D-printed patterned surface. 
-Our intention to achieve a minimalistic yet elegant design drove our design choices; a laser-cut transparent acrylic translucent structural frame with a flexible TPU 3D-printed fabric resting directly above three groups of cams using two different shapes, each driven by its own stepper motor. We considered that this design would keep attention on the movement itself. 
+Inspired by the unpredictability and movement of the ocean, our **Hand-Controlled Wave Fabric** is an interactive kinetic installation that translates touchless human hand gestures into varying, organic wave motion across a fabric with a 3D-printed patterned surface. 
+Our intention to achieve a minimalistic yet elegant outcome drove our design choices; a laser-cut transparent acrylic translucent structural frame with a flexible TPU 3D-printed fabric resting directly above three groups of cams using two different shapes, each driven by its own stepper motor. We considered that this design would keep attention on the movement itself. 
 
 The main structure measures approximately **60.2 cm wide × 43.9 cm long × 16.5 cm high** in CAD, excluding the webcam body and boat. Every material and structural choice was made to reinforce the core design concept:
 
