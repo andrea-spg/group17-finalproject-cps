@@ -323,6 +323,6 @@ These 6 classes map directly to the physical wave behaviours defined in the **Us
 - **Integrated Lighting:** Adding diffused LEDs inside the transparent acrylic frame beneath the TPU fabric would accentuate the moving cam silhouettes and wave crests in low-light environments.
 
 
-## 6. Declaration of AI Use
-The six gesture–response diagrams in the Interaction Model section were created from the project's STL models using Python scripts generated with assistance from OpenAI Codex (OpenAI, 2026).
-The assembly guide illustrations were created from the project's CAD models with assistance from ChatGPT (OpenAI, 2026).
+## 8. External Sources & Libraries Cited
+### Declaration of AI Use
+The six gesture–response diagrams in the Interaction Model section were created from the project's STL models using Python scripts generated with assistance from OpenAI Codex (OpenAI, 2026). The assembly guide illustrations were created from the project's CAD models with assistance from ChatGPT (OpenAI, 2026).
