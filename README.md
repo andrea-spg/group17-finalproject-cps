@@ -324,4 +324,7 @@ These 6 classes map directly to the physical wave behaviours defined in the **Us
 
 ## 8. External Sources & Libraries Cited
 ### Declaration of AI Use
-The six gesture–response diagrams in the Interaction Model section were created from the project's STL models using Python scripts generated with assistance from OpenAI Codex (OpenAI, 2026). The assembly guide illustrations were created from the project's CAD models with assistance from ChatGPT (OpenAI, 2026).
+
+The six gesture–response diagrams in the Interaction Model section were created from the project's STL models using Python scripts generated with assistance from OpenAI Codex (OpenAI, 2026). 
+
+The assembly guide illustrations were created from the project's CAD models with assistance from ChatGPT (OpenAI, 2026).
