@@ -62,6 +62,10 @@ For part named codes, see the [Parts Index](Image/Parts_Index.png). Down Below â
 
 ### Cam Mechanisms & Motion Transmission
 
+We initially considered an array of servos, but were concerned about its power demand within the projectâ€™s power limits. Exploring 3D-printed fabric led us to a simpler approach: using rotating cams beneath a flexible textile to create wave motion with just three motors.
+
+We tested several cam profiles against the fabric and selected the two that produced the most convincing and visually distinct wave patterns with the least resistance during rotation.
+
 - **Cam layout:** The two outer shafts use E1 cams, and the centre shaft uses E2 cams. Each shaft carries 14 cams, giving 42 in total. Their order and orientation are shown in the [cam sequence diagram](Image/Assembly_03_Cam_Sequence.png).
 - **Surface contact:** The cams are laser-cut from 4 mm birch plywood. Sanded edges and an additional fabric layer beneath the printed textile reduce rubbing.
 - **Motor mounts:** Each `28BYJ-48` motor bolts to a translucent blue PLA hanger B1. The hanger clips over the motor-side wall, with coupling B2 pointing into the frame. `AccelStepper` controls continuous rotation and changes in speed.
