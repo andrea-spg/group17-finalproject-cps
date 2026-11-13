@@ -33,8 +33,6 @@ Interaction is designed to be immediate and intuitive without wearables or physi
 
 
 
-
-
 <p align="center">
   <img src="Image/interaction_gif-ezgif.com-optimize.gif" alt="interaction_gif-ezgif.com-optimize" width="100%">
   <img src="Image/closer_gif-ezgif.com-optimize.gif" alt="closer_gif-ezgif.com-optimize" width="100%">
@@ -43,9 +41,9 @@ Interaction is designed to be immediate and intuitive without wearables or physi
 <img src="Image/closerviewtop2.png" alt="closerviewtop2" width="100%">
 
 <p align="left">
-  <img src="Image/closerview3.png" alt="closerview3" width="30%">
-  <img src="Image/closerviewtop.png" alt="closerviewtop" width="30%">
-  <img src="Image/closerview7.png" alt="closerview7" width="30%">
+  <img src="Image/closerview3.png" alt="closerview3" width="33%">
+  <img src="Image/closerview2.png" alt="closerview2" width="33%">
+  <img src="Image/closerview7.png" alt="closerview7" width="33%">
 </p>
 
 
