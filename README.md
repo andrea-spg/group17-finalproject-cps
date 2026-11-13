@@ -240,7 +240,8 @@ For the cam files, engrave `ENGRAVE_ID`; cut `CUT_LIGHTEN` and `0`.
 - **Cam Motor 2 (Centre):** Arduino `D8, D9, D10, D11` $\rightarrow$ ULN2003 #2 (`IN1–IN4`)
 - **Cam Motor 3 (Right):** Arduino `A0, A1, A2, A3` $\rightarrow$ ULN2003 #3 (`IN1–IN4`)
 
-(ANDREA SCHEMATIC/DIGITAL PINOUT SHOWN + PHOTO OF ELECTRONICS)
+![Digital pinout circuit sceheme, made in Fritzing](images/pinout CPS.png)
+![Visual outcome of electronics pinout](images/electronics.jpeg)
 
 - **Electrical Safety**
   - **Current Limiting & Hardware Switch:** The Power Board includes a built-in current-limit jumper and an onboard OFF–ON slide switch for immediate hardware power cutoff.
@@ -249,7 +250,7 @@ For the cam files, engrave `ENGRAVE_ID`; cut `CUT_LIGHTEN` and `0`.
 ### Estimated Power Consumption
 - **Single Motor Load:** Each `28BYJ-48` stepper motor draws approximately `200–240 mA` at `5 V` (`~1.1–1.2 W`) under cam load.
 
-ANDREA ADD CALCULATIONS!!!
+![Total estimated power consumption calculations](images/total power used calculation.jpeg)
 
 * **Peak System Power (Class 5 — All Three Cams at Full Speed):**
   $$I_{\text{total}} \approx (3 \times 240\text{ mA}) + 50\text{ mA (Arduino + driver LEDs)} = 770\text{ mA} \quad (\approx 3.85\text{ W at } 5\text{V})$$
@@ -264,17 +265,12 @@ ANDREA ADD CALCULATIONS!!!
 
 The software pipeline runs autonomously without manual intervention once launched, using a **single unified Arduino sketch** that transitions smoothly across all six modes:
 
-ANDREA DO A DIAGRAM OF PIPELINE
-```text
-Webcam (720p) ──► Python (MediaPipe) ──[OSC :6448]──► Wekinator (Classifier)
-                                                             │
-3× Cam Motors ◄── Arduino Nano Every ◄──[Serial 9600]── Processing (Debounced Bridge)
-```
+![Pipeline diagram](images/pipeline.drawio.png)
 
 ### Explanation of Each Software Stage
 1. **`Python/hand_to_wekinator.py`:** This code was partially written by Claude Sonnet 5.5. This code captures mirrored HD webcam video and uses MediaPipe's `hand_landmarker.task` model to turn hand landmarks into 3 simple, normalised numbers (hand count, horizontal palm position, and open finger ratio). This keeps tracking reliable regardless of lighting or how far you stand from the camera. It also includes a 5-frame memory buffer (`two_hand_memory`) so brief tracking glitches don't interrupt two-hand gestures, and a centre-zone snap (`0.30 ≤ x ≤ 0.70`) that locks middle-screen hands cleanly into Class 3 before streaming the data to Wekinator over OSC (`/wek/inputs`, port `6448`).
 2. **`Wekinator/WekinatorProjectfinal/`:** Configured with **3 inputs**, **1 output** using Wekinator's **All classifiers (default: k-Nearest Neighbour)** setting, and **6 classes**, it classifies incoming features in real time and sends the predicted class (`1`–`6`) over OSC (`/wek/outputs`, port `12000`).
-3.  **`Processing/wave_fabric_bridge/wave_fabric_bridge.pde`:** This code was mostly written by Claude Sonnet 5.5. This code displays the active wave mode on screen and passes commands from Wekinator over USB to the Arduino Serial Monitor. To keep the movement smooth, it waits until Wekinator predicts the same gesture **3 frames in a row (`NEEDED = 3`)** before switching modes—preventing split-second camera glitches from making the motors twitch—and automatically sends `'6'` (`All Stop`) when you close the window so the motors turn off safely.
+3.  **`Processing/wave_fabric_bridge/wave_fabric_bridge.pde`:** This code was mostly written by Claude Sonnet 5.5. This code displays the active wave mode on screen and passes commands from Wekinator over USB to the Arduino Serial Monitor. To keep the movement smooth, it waits until Wekinator predicts the same gesture **3 frames in a row (`NEEDED = 3`)** before switching modes, preventing split-second camera glitches from making the motors twitch—and automatically sends `'6'` (`All Stop`) when you close the window so the motors turn off safely.
 4. **`Arduino/waves_final/waves_final.ino`:** We used Claude Sonnet 5.5 to explain the AccelStepper library. We used the `AccelStepper` library to drive all three motors simultaneously without blocking the loop, it listens over USB (`9600` baud) for commands `'1'`–`'6'` from Processing and smoothly switches each cam between slow (`200` steps/s), fast (`600` steps/s), and stopped states (0).
 
 
