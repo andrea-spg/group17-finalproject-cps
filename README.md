@@ -40,7 +40,7 @@ Interaction is designed to be immediate and intuitive without wearables or physi
   <img src="Image/closer_gif-ezgif.com-optimize.gif" alt="closer_gif-ezgif.com-optimize" width="100%">
 </p>
 
-<img src="Image/closerviewtop2.png" alt="closerviewtop2" width="40%">
+<img src="Image/closerviewtop2.png" alt="closerviewtop2" width="100%">
 <img src="Image/closerview3.png" alt="closerview3" width="40%">
 <img src="Image/closerviewtop.png" alt="closerviewtop" width="40%">
 
