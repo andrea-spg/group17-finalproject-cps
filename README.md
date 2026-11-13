@@ -258,13 +258,6 @@ For the cam files, engrave `ENGRAVE_ID`; cut `CUT_LIGHTEN` and `0`.
   <img src="Image/total power used calculation.jpeg" alt="Total estimated power consumption calculations" width="45%">
 </p>
 
-* **Peak System Power (Class 5 — All Three Cams at Full Speed):**
-  $$I_{\text{total}} \approx (3 \times 240\text{ mA}) + 50\text{ mA (Arduino + driver LEDs)} = 770\text{ mA} \quad (\approx 3.85\text{ W at } 5\text{V})$$
-* **Electrical & Thermal Safeguards:**
-  * Powered via a regulated `[e.g., 5V 2A]` supply, providing more than `2.5×` current headroom above peak simultaneous load.
-  * In **Class 6 (All Stop)** and automatically upon closing the Processing window, `disableOutputs()` cuts holding current to all twelve motor coils so the steppers remain cool while idle.
-  * All wiring harnesses are routed neatly along the frame perimeter with strain relief so rotating cams cannot snag or abrade jumper connections.
-
 ---
 
 ## 4. Software Design & Pipeline
