@@ -105,11 +105,11 @@ b. Once layer 2 is complete, secure the fabric with magnets, then resume printin
 
 - **Frame to hold and tension fabric:** Holes around the frame allow the fabric to be stitched in place, with enough slack for the cams to lift and lower it freely. A top frame is then secured over the stitched frame with four screws to hold the assembly together.
 
-<img src="Image/sewing.jpg" alt="sewing" width="60%">
-<img src="Image/with_top_frame.jpg" alt="with_top_frame" width="60%">
-
-<img src="Image/frontview_cam.png" alt="frontview_cam" width="60%">
-<img src="Image/cam_perspective.jpg" alt="cam_perspective" width="60%">
+<p align="center">
+  <img src="Image/sewing.jpg" alt="sewing" width="33%">
+  <img src="Image/with_top_frame.jpg" alt="with_top_frame" width="33%">
+  <img src="Image/cam_perspective.jpg" alt="cam_perspective" width="33%">
+</p>
 
    
 #### Magnetic Boat
@@ -323,3 +323,8 @@ These 6 classes map directly to the physical wave behaviours defined in the **Us
 - **Static Pose vs Dynamic Velocity:** The current 3-feature model evaluates single-frame hand positions rather than movement velocity over time; collecting sequential gesture data and adding frame-to-frame palm velocity features would allow the TPU textile to mirror the speed of a user's wave directly.
 - **2D Occlusion & Extreme Angles:** MediaPipe can still lose finger accuracy when hands are tilted sharply toward the camera or overlap closely in two-hand mode; adding a wider-angle lens or multi-view calibration would reduce occlusion blind spots.
 - **Integrated Lighting:** Adding diffused LEDs inside the transparent acrylic frame beneath the TPU fabric would accentuate the moving cam silhouettes and wave crests in low-light environments.
+
+
+## 6. Declaration of AI Use
+The six gesture–response diagrams in the Interaction Model section were created from the project's STL models using Python scripts generated with assistance from OpenAI Codex (OpenAI, 2026).
+The assembly guide illustrations were created from the project's CAD models with assistance from ChatGPT (OpenAI, 2026).
