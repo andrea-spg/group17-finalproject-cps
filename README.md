@@ -93,13 +93,13 @@ Designed in Grasshopper, the pattern varies the height and diameter of printed u
 2. 3D print Settings
 
 a. Select the printer model and TPU filament, add a pause after layer 2, and slice the plate (The model files are available via the links in the attachment and on MakerWorld, as they are too large to upload directly).
-<p align="center">
+<p align="left">
   <img src="Image/print_setting1.png" alt="print_setting1" width="48%">
   <img src="Image/print_setting2.png" alt="print_setting2" width="48%">
 </p>
 
 b. Once layer 2 is complete, secure the fabric with magnets, then resume printing.
-<p align="center">
+<p align="left">
   <img src="Image/printing1.png" alt="printing1" width="30%">
   <img src="Image/printing2.png" alt="printing2" width="30%">
   <img src="Image/printing3.png" alt="printing3" width="30%">
