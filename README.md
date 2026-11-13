@@ -113,7 +113,7 @@ b. Once layer 2 is complete, secure the fabric with magnets, then resume printin
 
 
 
- **Frame to hold and tension fabric:** Holes around the frame allow the fabric to be stitched in place, with enough slack for the cams to lift and lower it freely. A top frame is then secured over the stitched frame with four screws to hold the assembly together.
+- **Frame to hold and tension fabric:** Holes around the frame allow the fabric to be stitched in place, with enough slack for the cams to lift and lower it freely. A top frame is then secured over the stitched frame with four screws to hold the assembly together.
 
 <img src="Image/sewing.jpg" alt="sewing" width="60%">
 <img src="Image/with_top_frame.jpg" alt="with_top_frame" width="60%">
