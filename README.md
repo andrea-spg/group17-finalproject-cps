@@ -5,17 +5,13 @@
 **Repository:** `group17-finalproject-cps`
 
 
-
 ## Table of Contents
 1. [Overall Concept & User Interaction](#1-overall-concept--user-interaction)
 2. [Mechanical Design & Fabrication](#2-mechanical-design--fabrication)
 3. [Hardware Design, Wiring & Power Consumption](#3-hardware-design-wiring--power-consumption)
-4. [Repository Structure & Software Pipeline](#4-repository-structure--software-pipeline)
-5. [Step-by-Step Setup & Running Instructions](#5-step-by-step-setup--running-instructions)
-6. [Machine Learning: Training, Evaluation & Reflection](#6-machine-learning-training-evaluation--reflection)
-7. [Troubleshooting Guide](#7-troubleshooting-guide)
-8. [External Sources & Libraries Cited](#8-external-sources--libraries-cited)
-
+4. [Software Design & Pipeline](#4-software-design--pipeline)
+5. [Machine Learning: Training, Evaluation & Reflection](#5-machine-learning-training-evaluation--reflection)
+6. [External Sources & Libraries Cited](#6-external-sources--libraries-cited)
 
 
 ## 1. Overall Concept & User Interaction
@@ -307,29 +303,23 @@ Python computes 3 normalised features (`/wek/inputs`) per frame:
 Using the Python MediaPipe camera model, approximately 1050 data units were trained for each of the 6 classes, considering hand distance from the camera itself, amount of people in the background and varying lighting conditions. (`Wekinator/WekinatorProjectfinal/current/currentData.arff`):
 These 6 classes map directly to the physical wave behaviours defined in the **User Interaction Model (Section 1)**.
 
-### Model Justification & Formal Performance Evaluation- ANDREA FINISH
+### Model Justification & Formal Performance Evaluation
+
 - **Chosen Model:** Wekinator's **All classifiers (default — k-Nearest Neighbour, $k=1$)** configured with **3 inputs** and **1 discrete classifier output** across **6 classes**.
 - **Model Justification:** As our 3 input features give each gesture a distinct numerical signature (for example, `0.25` finger ratio for Class 6 vs `1.00` for Classes 2–4, and `1.0` hand ratio for Class 5), k-NN ($k=1$) works especially well here. It compares live hand inputs to the closest example in our `7,200`-sample dataset, giving near-instant predictions without needing complex neural networks.
 - **Comparison of Feature Preprocessing & Model Performance:**
-  - *Baseline (Raw Unfiltered Coordinates):* In initial tests without feature stabilisation, hovering near the `x = 0.30` or `x = 0.70` zone borders caused frequent boundary flicker between Class 2, Class 3, and Class 4, while fast two-hand gestures occasionally dropped to 1 hand for a single frame.
-  - *Refined Pipeline (Zone Snapping + Temporal Filtering):* Adding the centre-zone snap (`0.30 ≤ x ≤ 0.70`) and 5-frame two-hand memory buffer in Python, combined with a 3-frame debounce filter (`NEEDED = 3`) in Processing, eliminated false state transitions during live testing.
-  - *Cross-Validation Accuracy:* `[Insert your exact percentage from Wekinator's "Evaluate" button here, e.g., "5-fold cross-validation in Wekinator achieved 98.7% classification accuracy across our 7,200-sample dataset, with confusion limited strictly to transitional frames between zones."]`
+  - *Baseline (Raw Unfiltered Coordinates):* In initial tests without feature stabilisation, if the user hovered their palm near the set line thresholds it caused the classifier to rapidly change between Class 2, Class 3, and Class 4. On the contrary, fast two-hand gestures and a singular finger proved to be highly accurate. 
+  - *Refined Pipeline (Zone Snapping + Temporal Filtering):* Dividing the camera into thresholds to detect position (`0.30 ≤ x ≤ 0.70`) combined with a 3-frame debounce filter (`NEEDED = 3`) in Processing eliminated false and quick transitions during testing.
+  - *Cross-Validation Accuracy:* Stratified 5-fold cross-validation on our k-NN ($k=1$) classifier achieved **97.91%** classification accuracy (and **97.89%** under 10-fold cross-validation) across our 6,117 sample recorded dataset (`currentData.arff`), with misclassifications between classes 2, 3 and 4 where the palm moves from one end of the fabric to the other.
 
-### Step-by-Step Guide to Train & Run the Model
-1. Launch `Python/hand_to_wekinator.py` so `/wek/inputs` is actively streaming 3 features on port `6448`.
-2. Open `Wekinator/WekinatorProjectfinal/WekinatorProjectfinal.wekproj` in Wekinator.
-3. **To Run the Pre-Trained Model:** Click **Run** immediately—Wekinator loads `model0.xml` and begins outputting predictions on port `12000`.
-4. **To Retrain for a New Camera Angle or Environment:**
-   - Click **Delete All Examples** (if retraining from scratch).
-   - Select Class **`1`**, hold **Start Recording** to capture ~1,200 examples with no user hands active (varying background movement and lighting), then stop.
-   - Repeat for Classes **`2`** (left palm), **`3`** (centre palm), **`4`** (right palm), **`5`** (two hands), and **`6`** (one index finger), varying hand distance around `40 cm` during recording.
-   - Click **Train**, optionally click **Evaluate** to verify cross-validation accuracy, and click **Run**.
 
 ### Limitations & Future Explorations
-- **Discrete Speed Levels vs Continuous Control:** Using discrete classification restricts each cam to fixed slow (`200` steps/s) or fast (`600` steps/s) speeds. With more time, replacing discrete classification with Wekinator's **continuous Neural Network regression** outputs mapped to palm vertical height (`Y` coordinate) would enable smooth, proportional speed modulation across `0–800` steps/s.
-- **Static Pose vs Dynamic Velocity:** The current 3-feature model evaluates single-frame hand positions rather than movement velocity over time; collecting sequential gesture data and adding frame-to-frame palm velocity features would allow the TPU textile to mirror the speed of a user's wave directly.
-- **2D Occlusion & Extreme Angles:** MediaPipe can still lose finger accuracy when hands are tilted sharply toward the camera or overlap closely in two-hand mode; adding a wider-angle lens or multi-view calibration would reduce occlusion blind spots.
-- **Integrated Lighting:** Adding diffused LEDs inside the transparent acrylic frame beneath the TPU fabric would accentuate the moving cam silhouettes and wave crests in low-light environments.
+- **Training Camera Mismatch & Environmental Sensitivity:** The current model was trained using an integrated laptop webcam under controlled indoor lighting with all team members wearing identical white lab coats. Variations in focal length, camera angle, background crowd, or user distance can degrade MediaPipe landmark confidence. Future iterations should be recorded directly with the external webcam, as well as considering many background people, hands, distances, angles, clothing, and lighting conditions.
+- **Static Poses vs Dynamic Sweep Gestures:** As our 3-feature k-NN model evaluates single-frame hand positions, it cannot distinguish directional sweep gestures or movement velocity, which was our original design goal. Exploring temporal classifiers such as **Dynamic Time Warping (DTW)** in Wekinator or sequence models could enable a more accurate recognition of continuous left-to-right hand sweeps for Classes 2, 3, and 4.
+- **Unidirectional Rotation & Mechanism Complexity:** Currently, all three stepper motors rotate strictly clockwise at fixed speeds, limiting the textile to simple travelling waves. Using `AccelStepper`'s library, we could consider to alter the motors in anticlockwise direction, as well as exploring different cam alignments and amount of motors with a higher power supply to explore different waves such as ripples, standing waves or crashing waves.
+- **Passive Magnetic Boat vs Active Boat Mechanics:** Right now, the boat rests on the TPU surface with a magnet located underneath the fabric to hold it up, used for aesthetic purposes. Incorporating under-surface mechanical actuation to lift the boat up again if it tilts could be explored.
+- **Different TPU colours:** To further enhance the wave simulation we could consider printing different tones of blue TPU on the fabric rounded ends, to resemble the ocean’s expansive colour pallette onto our installation. An example could be adding white edges to mirror wave foam.
+
 
 
 ## 8. External Sources & Libraries Cited
