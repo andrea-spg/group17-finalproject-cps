@@ -41,9 +41,9 @@ Interaction is designed to be immediate and intuitive without wearables or physi
 <img src="Image/closerviewtop2.png" alt="closerviewtop2" width="100%">
 
 <p align="left">
-  <img src="Image/closerview3.png" alt="closerview3" width="33%">
-  <img src="Image/closerview2.png" alt="closerview2" width="33%">
-  <img src="Image/closerview7.png" alt="closerview7" width="33%">
+  <img src="Image/closerview3.png" alt="closerview3" width="32%">
+  <img src="Image/closerview2.png" alt="closerview2" width="32%">
+  <img src="Image/closerview7.png" alt="closerview7" width="32%">
 </p>
 
 
