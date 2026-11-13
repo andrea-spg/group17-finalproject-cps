@@ -33,20 +33,24 @@ Interaction is designed to be immediate and intuitive without wearables or physi
 
 
 
-<img src="Image/closer_gif-ezgif.com-optimize.gif" alt="closer_gif-ezgif.com-optimize" width="40%">
-<img src="Image/closer_gif-ezgif.com-optimize.gif" alt="closer_gif-ezgif.com-optimize" width="40%">
 
+
+<p align="center">
+  <img src="Image/interaction_gif-ezgif.com-optimize.gif" alt="interaction_gif-ezgif.com-optimize" width="100%">
+  <img src="Image/closer_gif-ezgif.com-optimize.gif" alt="closer_gif-ezgif.com-optimize" width="100%">
+</p>
 
 <img src="Image/closerviewtop2.png" alt="closerviewtop2" width="40%">
 <img src="Image/closerview3.png" alt="closerview3" width="40%">
 <img src="Image/closerviewtop.png" alt="closerviewtop" width="40%">
 
 <img src="Image/closerview7.png" alt="closerview7" width="40%">
-
 <img src="Image/closerview2.png" alt="closerview2" width="40%">
 <img src="Image/closerview8.png" alt="closerview8" width="40%">
-
 <img src="Image/closerview5.png" alt="closerview5" width="40%">
+
+
+
 
 
 ### User Interaction Model
