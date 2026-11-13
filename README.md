@@ -107,12 +107,6 @@ b. Once layer 2 is complete, secure the fabric with magnets, then resume printin
 
 
 
-
-
-
-
-
-
 - **Frame to hold and tension fabric:** Holes around the frame allow the fabric to be stitched in place, with enough slack for the cams to lift and lower it freely. A top frame is then secured over the stitched frame with four screws to hold the assembly together.
 
 <img src="Image/sewing.jpg" alt="sewing" width="60%">
@@ -261,7 +255,7 @@ For the cam files, engrave `ENGRAVE_ID`; cut `CUT_LIGHTEN` and `0`.
 - **Single Motor Load:** Each `28BYJ-48` stepper motor draws approximately `200–240 mA` at `5 V` (`~1.1–1.2 W`) under cam load.
 - 
 <p align="center">
-  <img src="Image/total power used calculation.jpeg" alt="Total estimated power consumption calculations" width="75%">
+  <img src="Image/total power used calculation.jpeg" alt="Total estimated power consumption calculations" width="45%">
 </p>
 
 * **Peak System Power (Class 5 — All Three Cams at Full Speed):**
