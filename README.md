@@ -54,7 +54,7 @@ Users interact with the kinetic surface around 40cm away from the frame, where a
 
 Three motor-driven shafts lift the textile from below. Each shaft carries 14 cams, with two cam profiles used across the three shafts. As the cams turn, the textile rises and falls under its own weight and elasticity.
 
-For part named codes, see the [Parts Index](Image/Parts_Index.png). Down Below ⬇️
+For part named codes, see the [Parts Index](Image/Parts_Index.png).
 
 ### Cam Mechanisms & Motion Transmission
 
