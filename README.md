@@ -240,8 +240,18 @@ For the cam files, engrave `ENGRAVE_ID`; cut `CUT_LIGHTEN` and `0`.
 - **Cam Motor 2 (Centre):** Arduino `D8, D9, D10, D11` $\rightarrow$ ULN2003 #2 (`IN1–IN4`)
 - **Cam Motor 3 (Right):** Arduino `A0, A1, A2, A3` $\rightarrow$ ULN2003 #3 (`IN1–IN4`)
 
-![Digital pinout circuit sceheme, made in Fritzing](Image/pinout CPS.png)
-![Visual outcome of electronics pinout](Image/electronics.jpeg)
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+  <tr>
+    <td width="50%" align="center" valign="top">
+      <img src="Image/pinout_CPS.png" alt="Digital pinout circuit schema, made in Fritzing" width="100%"><br>
+      <em>Digital pinout circuit schema, made in Fritzing</em>
+    </td>
+    <td width="50%" align="center" valign="top">
+      <img src="Image/electronics.jpeg" alt="Visual outcome of electronics pinout" width="100%"><br>
+      <em>Visual outcome of electronics pinout</em>
+    </td>
+  </tr>
+</table>
 
 - **Electrical Safety**
   - **Current Limiting & Hardware Switch:** The Power Board includes a built-in current-limit jumper and an onboard OFF–ON slide switch for immediate hardware power cutoff.
@@ -249,8 +259,10 @@ For the cam files, engrave `ENGRAVE_ID`; cut `CUT_LIGHTEN` and `0`.
 
 ### Estimated Power Consumption
 - **Single Motor Load:** Each `28BYJ-48` stepper motor draws approximately `200–240 mA` at `5 V` (`~1.1–1.2 W`) under cam load.
-
-![Total estimated power consumption calculations](Image/total power used calculation.jpeg)
+- 
+<p align="center">
+  <img src="Image/total power used calculation.jpeg" alt="Total estimated power consumption calculations" width="75%">
+</p>
 
 * **Peak System Power (Class 5 — All Three Cams at Full Speed):**
   $$I_{\text{total}} \approx (3 \times 240\text{ mA}) + 50\text{ mA (Arduino + driver LEDs)} = 770\text{ mA} \quad (\approx 3.85\text{ W at } 5\text{V})$$
@@ -265,7 +277,9 @@ For the cam files, engrave `ENGRAVE_ID`; cut `CUT_LIGHTEN` and `0`.
 
 The software pipeline runs autonomously without manual intervention once launched, using a **single unified Arduino sketch** that transitions smoothly across all six modes:
 
-![Pipeline diagram](Image/pipeline.drawio.png)
+<p align="center">
+  <img src="Image/pipeline.drawio.png" alt="Pipeline diagram" width="100%">
+</p>
 
 ### Explanation of Each Software Stage
 1. **`Python/hand_to_wekinator.py`:** This code was partially written by Claude Sonnet 5.5. This code captures mirrored HD webcam video and uses MediaPipe's `hand_landmarker.task` model to turn hand landmarks into 3 simple, normalised numbers (hand count, horizontal palm position, and open finger ratio). This keeps tracking reliable regardless of lighting or how far you stand from the camera. It also includes a 5-frame memory buffer (`two_hand_memory`) so brief tracking glitches don't interrupt two-hand gestures, and a centre-zone snap (`0.30 ≤ x ≤ 0.70`) that locks middle-screen hands cleanly into Class 3 before streaming the data to Wekinator over OSC (`/wek/inputs`, port `6448`).
