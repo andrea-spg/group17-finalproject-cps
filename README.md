@@ -62,7 +62,7 @@ For part named codes, see the [Parts Index](Image/Parts_Index.png). Down Below â
 
 ### Cam Mechanisms & Motion Transmission
 
-- **Cam layout:** The two outer shafts, C and A, use E1 cams. The centre shaft, B, uses E2 cams. Each group has 14 cams, giving 42 in total. Their orientation changes along each shaft to stagger the lift across the textile.
+- **Cam layout:** The two outer shafts use E1 cams, and the centre shaft uses E2 cams. Each shaft carries 14 cams, giving 42 in total. Their order and orientation are shown in the [cam sequence diagram](Image/Assembly_03_Cam_Sequence.png).
 - **Surface contact:** The cams are laser-cut from 4 mm birch plywood. Sanded edges and an additional fabric layer beneath the printed textile reduce rubbing.
 - **Motor mounts:** Each `28BYJ-48` motor bolts to a translucent blue PLA hanger B1. The hanger clips over the motor-side wall, with coupling B2 pointing into the frame. `AccelStepper` controls continuous rotation and changes in speed.
 - **Shafts and bearings:** Each shaft is a 40 cm acrylic rod with a nominal 5 Ã— 5 mm square section. One end fits into coupling B2; the other fits into adaptor C3 inside a 687ZZ bearing C5. Collar C4 retains the bearing's inner race. C1 and C2 hold the bearing on the opposite wall.
