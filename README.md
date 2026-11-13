@@ -4,7 +4,7 @@
 **Course:** Cyber-Physical Systems (CPS)  
 **Repository:** `group17-finalproject-cps`
 
----
+
 
 ## Table of Contents
 1. [Overall Concept & User Interaction](#1-overall-concept--user-interaction)
@@ -16,7 +16,7 @@
 7. [Troubleshooting Guide](#7-troubleshooting-guide)
 8. [External Sources & Libraries Cited](#8-external-sources--libraries-cited)
 
----
+
 
 ## 1. Overall Concept & User Interaction
 
@@ -53,7 +53,6 @@ Interaction is designed to be immediate and intuitive without wearables or physi
 Users interact with the kinetic surface around 40cm away from the frame, where a webcam located in the frame records any user hand gesture. 
 ![interaction_table_hd](Image/interaction_table_hd.png)
 
----
 
 ## 2. Mechanical Design & Fabrication
 
@@ -207,7 +206,7 @@ For the cam files, engrave `ENGRAVE_ID`; cut `CUT_LIGHTEN` and `0`.
 </details>
 
 
----
+
 
 ## 3. Hardware Design, Wiring & Power Consumption
 
@@ -252,7 +251,7 @@ For the cam files, engrave `ENGRAVE_ID`; cut `CUT_LIGHTEN` and `0`.
   <img src="Image/total power used calculation.jpeg" alt="Total estimated power consumption calculations" width="45%">
 </p>
 
----
+
 
 ## 4. Software Design & Pipeline
 
@@ -282,7 +281,7 @@ The software pipeline runs autonomously without manual intervention once launche
    cd Python
    python hand_to_wekinator.py
 
----
+
 
 ## 5. Machine Learning: Training, Evaluation & Reflection
 
