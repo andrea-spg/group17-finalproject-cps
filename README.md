@@ -32,9 +32,9 @@ The main structure measures approximately **60.2 cm wide × 43.9 cm long × 16.5
 Interaction is designed to be immediate and intuitive without wearables or physical contact. When no user is present, the fabric moves in a slow, continuous idle ripple. Moving an open palm across the left, centre, or right set threshold areas of the camera shifts the wave intensity to the corresponding section of the fabric, raising two hands drives all three sections at full speed resembling a 'storm', and raising a single index finger pauses the system.
 
 
-![closer_gif](./Image/closer_gif.gif)
 
-
+<img src="Image/closer_gif-ezgif.com-optimize.gif" alt="closer_gif-ezgif.com-optimize" width="40%">
+<img src="Image/closer_gif-ezgif.com-optimize.gif" alt="closer_gif-ezgif.com-optimize" width="40%">
 
 
 <img src="Image/closerviewtop2.png" alt="closerviewtop2" width="40%">
