@@ -75,7 +75,7 @@ Three motor-driven shafts lift the textile from below. Each shaft carries 14 cam
 - **Flexible TPU Textile:** 
 Designed in Grasshopper, the pattern varies the height and diameter of printed units to create a more natural wave-like appearance. Flexible TPU 90A units are printed onto organza layered over stretch fabric. Secured around the frame with enough slack to move, the textile rises and falls with the rotating cams.
 
-1. Parametric Generation
+1\. Parametric Generation
 
 <p align="center">
   <img src="Image/grasshopper.png" alt="grasshopper" width="50%">
@@ -86,7 +86,7 @@ Designed in Grasshopper, the pattern varies the height and diameter of printed u
 
 
 
-2. 3D print Settings
+2\. 3D print Settings
 
 a. Select the printer model and TPU filament, add a pause after layer 2, and slice the plate (The model files are available via the links in the attachment and on MakerWorld, as they are too large to upload directly).
 <p align="center">
