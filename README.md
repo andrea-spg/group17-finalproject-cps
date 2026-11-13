@@ -22,17 +22,17 @@
 
 ### Design Concept & Materiality
 Inspired by the unpredictability and movement of the ocean, our **Hand-Controlled Wave Fabric** is an interactive kinetic textile installation that translates touchless human hand gestures into varying, organic wave motion across a fabric with a 3D-printed patterned surface. 
-Our intention to achieve a minimalistic yet elegant design drove our design choices; a laser-cut transparent acrylic translucent structural frame with a flexible TPU 3D-printed fabric resting directly above two differently shaped cam mechanisms, which are being rotated by three stepper motors in parallel. We considered that this design would keep attention on the movement itself. 
+Our intention to achieve a minimalistic yet elegant design drove our design choices; a laser-cut transparent acrylic translucent structural frame with a flexible TPU 3D-printed fabric resting directly above three groups of cams using two different shapes, each driven by its own stepper motor. We considered that this design would keep attention on the movement itself. 
 
-The complete installation measures `[XX cm]` wide, `[XX cm]` long, and `[XX cm]` high (ZHIRU). Every material and structural choice was made to reinforce the core design concept:
+The main structure measures approximately **60.2 cm wide × 43.9 cm long × 16.5 cm high** in CAD, excluding the webcam body and boat. Every material and structural choice was made to reinforce the core design concept:
 
-- **Transparent Acrylic Frame:** (ZHIRU WRITE HERE) Laser-cut clear acrylic exposes the three rotating cams and stepper motors on a side, making the mechanical motion an intentional part of the visual experience.
+- **Transparent Acrylic Frame:** Four laser-cut 5 mm clear acrylic walls sit in printed feet and are joined by inner corner brackets and M3 screws. The clear walls leave the three cam groups and their motors visible.
 - **3D-Printed Flexible TPU Fabric:** Flexible TPU units are printed onto organza layered over stretch fabric. The cams lift the textile from below, creating gentle waves and shifting patterns of light and shadow.
 
 Interaction is designed to be immediate and intuitive without wearables or physical contact. When no user is present, the fabric moves in a slow, continuous idle ripple. Moving an open palm across the left, centre, or right set threshold areas of the camera shifts the wave intensity to the corresponding section of the fabric, raising two hands drives all three sections at full speed resembling a 'storm', and raising a single index finger pauses the system.
 
 
-> **[INSERT PHOTO: Clear hero photograph of the completed physical installation showing the transparent frame, the two differently shaped cams, and the TPU 3D-printed fabric on top]**
+
 
 <img src="Image/closerviewtop2.png" alt="closerviewtop2" width="40%">
 <img src="Image/closerview3.png" alt="closerview3" width="40%">
@@ -54,36 +54,21 @@ Users interact with the kinetic surface around 40cm away from the frame, where a
 
 ## 2. Mechanical Design & Fabrication
 
-Focusing on making our project mechanically simple and elegant, we engineered a dedicated **three-cam kinetic actuation system**, where continuous rotary motion is converted into varied vertical and travelling wave profiles across a flexible TPU textile. The mechanism reaches a fluid, organic deformation by combining two asymmetric rotary cams with a flexible 3D-printed TPU fabric whose own stretch and tensioned weight pull the surface back down into place after each cam pushes it upward.
-
-### Cam Mechanisms, Motion Transmission & Compliant Fabric
+Three motor-driven shafts lift the textile from below. Each shaft carries 14 cams, with two cam profiles used across the three shafts. As the cams turn, the textile rises and falls under its own weight and elasticity.
 
 ### Cam Mechanisms & Motion Transmission
 
--* **Two Distinct Cam Profiles:** Two custom cams featuring **different shapes and off-centre profiles** are mounted directly onto the 40cm acrylic rods, and then placed into the holders of three `28BYJ-48` stepper motors. As each cam has a unique radial profile due to their angled offsets and different heights, the rotation of these cams displace the TPU textile out of phase, mirroring the organic asymmetry and natural turbulence of the ocean instead of predictable, repetitive motion.
+- **Cam layout:** The two outer shafts, C and A, use E1 cams. The centre shaft, B, uses E2 cams. Each group has 14 cams, giving 42 in total. Their orientation changes along each shaft to stagger the lift across the textile.
+- **Surface contact:** The cams are laser-cut from 4 mm birch plywood. Sanded edges and an additional fabric layer beneath the printed textile reduce rubbing.
+- **Motor mounts:** Each `28BYJ-48` motor bolts to a translucent blue PLA hanger B1. The hanger clips over the motor-side wall, with coupling B2 pointing into the frame. `AccelStepper` controls continuous rotation and changes in speed.
+- **Shafts and bearings:** Each shaft is a 40 cm acrylic rod with a nominal 5 × 5 mm square section. One end fits into coupling B2; the other fits into adaptor C3 inside a 687ZZ bearing C5. Collar C4 retains the bearing's inner race. C1 and C2 hold the bearing on the opposite wall.
 
--* **Direct Rotary-to-Surface Contact:** Smooth, wood laser-cut cam perimeters press upwards the underside of the TPU printed fabric, translating continuous 360° stepper rotation into smooth vertical displacement. Friction with the fabric was reduced by sanding the cams perimiters and adding an additional layer of fabric below the first TPU printed layers.
+![Frame, three cam groups and textile frame - CAD assembly](Image/Assembly_Overview.png)
 
--* **Three Stepper Motors:** Using geared stepper motors with the `AccelStepper` library allows full, continuous 360° cam rotation and smooth, quiet speed changes.
+### Fabrication
 
--* **Motor Alignment:** The stepper motors are mounted by pieces of 3D printed translucent blue PLA, where the motors are screwed. These pieces have a clip-on attachment to attach and remove the stepper motors from the sides of the acrylic frame. 
-
--* **Rod and bearing rotation:** Each cam row is connected by a 40cm squared rod of dimensions 5mm x 5mm. This rod is fitted into...ZHIRU
-
-
-ZHIRU PHOTOS OF FRAME
-
-
-
-  ### Fabrication
-
-- **3D printed parts connecting frame:** (ZHIRU WRITE HERE) BEARINGS, ETC
-
-- **Top and bottom parts for frame elevation and to add fabric frame:** ..ZHIRU
-  
-
-
-
+- **Frame and printed fittings:** Laser-cut walls A3-A6 from 5 mm clear acrylic. Feet A1 locate the walls, and inner brackets A2 join the corners. Print the motor hangers B1, couplings B2 and bearing parts C1-C4; assemble them as shown below.
+- **Textile frame supports:** The four A1 feet support the enclosure. Upper corners D1-D4 raise the textile frame. The textile is sewn to D6, with D7 above it and a 2 mm spacer at each corner. Bridge D5 carries the webcam above the centre motor.
 - **Flexible TPU Textile:** 
 Designed in Grasshopper, the pattern varies the height and diameter of printed units to create a more natural wave-like appearance. Flexible TPU 90A units are printed onto organza layered over stretch fabric. Secured around the frame with enough slack to move, the textile rises and falls with the rotating cams.
 
@@ -121,7 +106,7 @@ b. Once layer 2 is complete, secure the fabric with magnets, then resume printin
 
 
 
-* - - **Frame to hold and tension fabric:** Holes around the frame allow the fabric to be stitched in place, with enough slack for the cams to lift and lower it freely. A top frame is then secured over the stitched frame with four screws to hold the assembly together.
+ **Frame to hold and tension fabric:** Holes around the frame allow the fabric to be stitched in place, with enough slack for the cams to lift and lower it freely. A top frame is then secured over the stitched frame with four screws to hold the assembly together.
 
 <img src="Image/sewing.jpg" alt="sewing" width="60%">
 <img src="Image/with_top_frame.jpg" alt="with_top_frame" width="60%">
@@ -130,9 +115,102 @@ b. Once layer 2 is complete, secure the fabric with magnets, then resume printin
 <img src="Image/cam_perspective.jpg" alt="cam_perspective" width="60%">
 
    
-* - - **Magnetic boat piece for visual effect:** ZHIRU
+#### Magnetic Boat
 
-> **[INSERT PHOTO / CAD RENDER: Close-up photograph or CAD assembly showing the three differently shaped cams mounted inside the transparent acrylic frame]**
+The boat F8 is printed in orange PETG. Glue Ø6 × 3 mm magnets into the pockets underneath, then place matching magnets below the textile with attracting poles facing each other. The boat moves with the fabric.
+
+Hull adapted from [3DBenchy](https://www.3dbenchy.com/) by Daniel Norée / Creative Tools, with magnet pockets added underneath.
+
+#### Mechanical Assembly
+
+![Parts index](Image/Parts_Index.png)
+
+##### 01-02 · Feet and acrylic walls
+
+![Feet and acrylic walls](Image/Assembly_01_Feet_Walls.png)
+
+##### 03-04 · Motors and bearings
+
+![Motor and bearing assemblies](Image/Assembly_02_Drive_Bearing.png)
+
+##### 05 · Cam order and orientation
+
+![Cam order from motor to bearing](Image/Assembly_03_Cam_Sequence.png)
+
+##### 05-06 · Shafts
+
+![Thread the cams and mount the three shafts](Image/Assembly_04_Shafts.png)
+
+##### 07-08 · Textile frame
+
+![Fit the raised corners, sewn textile frame and cover](Image/Assembly_05_Textile_Frames.png)
+
+##### 09-10 · Webcam and assembled view
+
+![Install the webcam bridge and webcam](Image/Assembly_06_Webcam_Overview.png)
+
+##### 11 · Boat
+
+![Fit the boat magnets across the textile](Image/Assembly_07_Boat.png)
+
+#### Manufacturing Files and Hardware
+
+<details>
+<summary>Print files, cutting files and hardware</summary>
+
+**3D printing** · F8 uses orange PETG.
+
+| Part | Qty | STL | 3DM |
+|---|---|---|---|
+| A1 | 4 | [A1.stl](Model/A1.stl) | [A1.3dm](Model/A1.3dm) |
+| A2 | 4 | [A2.stl](Model/A2.stl) | [A2.3dm](Model/A2.3dm) |
+| B1 | 3 | [B1.stl](Model/B1.stl) | [B1.3dm](Model/B1.3dm) |
+| B2 | 3 | — | [B2.3dm](Model/B2.3dm) |
+| C1 | 3 | [C1.stl](Model/C1.stl) | [C1.3dm](Model/C1.3dm) |
+| C2 | 3 | [C2.stl](Model/C2.stl) | [C2.3dm](Model/C2.3dm) |
+| C3 | 3 | [C3.stl](Model/C3.stl) | [C3.3dm](Model/C3.3dm) |
+| C4 | 3 | [C4.stl](Model/C4.stl) | [C4.3dm](Model/C4.3dm) |
+| D1 | 1 | [D1.stl](Model/D1.stl) | [D1.3dm](Model/D1.3dm) |
+| D2 | 1 | [D2.stl](Model/D2.stl) | [D2.3dm](Model/D2.3dm) |
+| D3 | 1 | [D3.stl](Model/D3.stl) | [D3.3dm](Model/D3.3dm) |
+| D4 | 1 | [D4.stl](Model/D4.stl) | [D4.3dm](Model/D4.3dm) |
+| D5 | 1 | [D5.stl](Model/D5.stl) | [D5.3dm](Model/D5.3dm) |
+| F8 | 1 | [F8.stl](Model/F8.stl) | [F8.3dm](Model/F8.3dm) |
+
+**Laser cutting** · Cut each file once.
+
+| File | Material |
+|---|---|
+| [A3.dxf](Model/A3.dxf) | 5 mm clear acrylic |
+| [A4.dxf](Model/A4.dxf) | 5 mm clear acrylic |
+| [A5.dxf](Model/A5.dxf) | 5 mm clear acrylic |
+| [A6.dxf](Model/A6.dxf) | 5 mm clear acrylic |
+| [D6.dxf](Model/D6.dxf) · [D6.3dm](Model/D6.3dm) | 5 mm sheet |
+| [D7.dxf](Model/D7.dxf) · [D7.3dm](Model/D7.3dm) | 5 mm plywood |
+| [E1-E2_Layout_01.dxf](Model/E1-E2_Layout_01.dxf) | 4 mm birch plywood |
+| [E1-E2_Layout_02.dxf](Model/E1-E2_Layout_02.dxf) | 4 mm birch plywood |
+
+For the cam files, engrave `ENGRAVE_ID`; cut `CUT_LIGHTEN` and `0`.
+
+**Mechanical hardware**
+
+| Specification | Qty |
+|---|---|
+| M3 × 20 | 8 |
+| M3 × 16 | 8 |
+| M3 × 8 | 16 |
+| M3 × 25 | 10 |
+| M3 × 10 | 3 |
+| M3 grub screw | 6 |
+| M3 hex nut | 32 |
+| M3 steel washer | 38 |
+| M3 nylon washer | 8 |
+| Ø7 / Ø3.4 × 2 mm spacer | 4 |
+| 687ZZ bearing | 3 |
+| Ø6 × 3 mm magnet | Up to 3 pairs |
+
+</details>
+
 
 ---
 
