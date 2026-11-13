@@ -41,14 +41,12 @@ Interaction is designed to be immediate and intuitive without wearables or physi
 </p>
 
 <img src="Image/closerviewtop2.png" alt="closerviewtop2" width="100%">
-<img src="Image/closerview3.png" alt="closerview3" width="40%">
-<img src="Image/closerviewtop.png" alt="closerviewtop" width="40%">
 
-<img src="Image/closerview7.png" alt="closerview7" width="40%">
-<img src="Image/closerview2.png" alt="closerview2" width="40%">
-<img src="Image/closerview8.png" alt="closerview8" width="40%">
-<img src="Image/closerview5.png" alt="closerview5" width="40%">
-
+<p align="left">
+  <img src="Image/closerview3.png" alt="closerview3" width="30%">
+  <img src="Image/closerviewtop.png" alt="closerviewtop" width="30%">
+  <img src="Image/closerview7.png" alt="closerview7" width="30%">
+</p>
 
 
 
@@ -80,12 +78,12 @@ Three motor-driven shafts lift the textile from below. Each shaft carries 14 cam
 Designed in Grasshopper, the pattern varies the height and diameter of printed units to create a more natural wave-like appearance. Flexible TPU 90A units are printed onto organza layered over stretch fabric. Secured around the frame with enough slack to move, the textile rises and falls with the rotating cams.
 
 1. Parametric Generation
-   
-<img src="Image/grasshopper.png" alt="grasshopper" width="100%">
 
-<img src="Image/grasshopper_perspective.png" alt="grasshopper_perspective" width="100%">
-
-<img src="Image/grasshopper_3vies.png" alt="grasshopper_3vies" width="100%">
+<p align="center">
+  <img src="Image/grasshopper.png" alt="grasshopper" width="50%">
+  <br>
+  <img src="Image/grasshopper_3vies.png" alt="grasshopper_3vies" width="50%">
+</p>
 
 
 
@@ -93,18 +91,16 @@ Designed in Grasshopper, the pattern varies the height and diameter of printed u
 2. 3D print Settings
 
 a. Select the printer model and TPU filament, add a pause after layer 2, and slice the plate (The model files are available via the links in the attachment and on MakerWorld, as they are too large to upload directly).
-<p align="left">
+<p align="center">
   <img src="Image/print_setting1.png" alt="print_setting1" width="48%">
-  <img src="Image/print_setting2.png" alt="print_setting2" width="48%">
 </p>
 
 b. Once layer 2 is complete, secure the fabric with magnets, then resume printing.
 <p align="left">
-  <img src="Image/printing1.png" alt="printing1" width="30%">
-  <img src="Image/printing2.png" alt="printing2" width="30%">
-  <img src="Image/printing3.png" alt="printing3" width="30%">
+  <img src="Image/printing1.png" alt="printing1" width="33%">
+  <img src="Image/printing2.png" alt="printing2" width="33%">
+  <img src="Image/printing3.png" alt="printing3" width="33%">
 </p>
-
 
 
 - **Frame to hold and tension fabric:** Holes around the frame allow the fabric to be stitched in place, with enough slack for the cams to lift and lower it freely. A top frame is then secured over the stitched frame with four screws to hold the assembly together.
