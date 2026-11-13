@@ -243,7 +243,7 @@ For the cam files, engrave `ENGRAVE_ID`; cut `CUT_LIGHTEN` and `0`.
 <table border="0" cellpadding="5" cellspacing="0" width="100%">
   <tr>
     <td width="50%" align="center" valign="top">
-      <img src="Image/pinout_CPS.png" alt="Digital pinout circuit schema, made in Fritzing" width="100%"><br>
+      <img src="Image/pinout CPS.png" alt="Digital pinout circuit scheme, made in Fritzing" width="100%"><br>
       <em>Digital pinout circuit schema, made in Fritzing</em>
     </td>
     <td width="50%" align="center" valign="top">
