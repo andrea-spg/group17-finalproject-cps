@@ -41,9 +41,9 @@ Interaction is designed to be immediate and intuitive without wearables or physi
 <img src="Image/closerviewtop2.png" alt="closerviewtop2" width="100%">
 
 <p align="left">
-  <img src="Image/closerview3.png" alt="closerview3" width="32%">
-  <img src="Image/closerview2.png" alt="closerview2" width="32%">
-  <img src="Image/closerview7.png" alt="closerview7" width="32%">
+  <img src="Image/closerview3.png" alt="closerview3" width="33%">
+  <img src="Image/closerview2.png" alt="closerview2" width="33%">
+  <img src="Image/closerview7.png" alt="closerview7" width="33%">
 </p>
 
 
@@ -100,18 +100,18 @@ a. Select the printer model and TPU filament, add a pause after layer 2, and sli
 
 b. Once layer 2 is complete, secure the fabric with magnets, then resume printing.
 <p align="left">
-  <img src="Image/printing1.png" alt="printing1" width="32%">
-  <img src="Image/printing2.png" alt="printing2" width="32%">
-  <img src="Image/printing3.png" alt="printing3" width="32%">
+  <img src="Image/printing1.png" alt="printing1" width="33%">
+  <img src="Image/printing2.png" alt="printing2" width="33%">
+  <img src="Image/printing3.png" alt="printing3" width="33%">
 </p>
 
 
 - **Frame to hold and tension fabric:** Holes around the frame allow the fabric to be stitched in place, with enough slack for the cams to lift and lower it freely. A top frame is then secured over the stitched frame with four screws to hold the assembly together.
 
 <p align="center">
-  <img src="Image/cam_perspective.jpg" alt="cam_perspective" width="32%">
-  <img src="Image/sewing.jpg" alt="sewing" width="32%">
-  <img src="Image/with_top_frame.jpg" alt="with_top_frame" width="32%">
+  <img src="Image/cam_perspective.jpg" alt="cam_perspective" width="33%">
+  <img src="Image/sewing.jpg" alt="sewing" width="33%">
+  <img src="Image/with_top_frame.jpg" alt="with_top_frame" width="33%">
 </p>
 
    
