@@ -137,7 +137,7 @@ Hull adapted from [3DBenchy](https://www.3dbenchy.com/) by Daniel Norée / Creat
 
 ![Cam order from motor to bearing](Image/Assembly_03_Cam_Sequence.png)
 
-##### 05-06 · Shafts
+##### 06 · Shafts
 
 ![Thread the cams and mount the three shafts](Image/Assembly_04_Shafts.png)
 
@@ -228,7 +228,7 @@ For the cam files, engrave `ENGRAVE_ID`; cut `CUT_LIGHTEN` and `0`.
 
 ### Pin Wiring & Electrical Safety
 - **Power Distribution (5 V Rail):** A portable USB-C power bank feeds the **Imperial DSDE Power Board**, which plugs directly into the breadboard power rails. The board's **5 V and GND pins** supply power to all three `ULN2003` stepper driver boards (the `3.3 V` rail is unused).
-- **Common Ground:** The `GND` and `5V` pins on the Power Board area soldered on a veroboard, on the same rail as the `GND` and `5V` rails of all three `ULN2003` drivers and the Arduino Nano Every's `GND` pin.
+- **Common Ground:** The `GND` and `5V` pins on the Power Board are soldered on a veroboard, on the same rail as the `GND` and `5V` rails of all three `ULN2003` drivers and the Arduino Nano Every's `GND` pin.
 - **Cam Motor 1 (Left):** Arduino `D2, D3, D4, D5` $\rightarrow$ ULN2003 (1) (`IN1–IN4`)
 - **Cam Motor 2 (Centre):** Arduino `D8, D9, D10, D11` $\rightarrow$ ULN2003 (2) (`IN1–IN4`)
 - **Cam Motor 3 (Right):** Arduino `A0, A1, A2, A3` $\rightarrow$ ULN2003 (3) (`IN1–IN4`)
@@ -267,7 +267,7 @@ For the cam files, engrave `ENGRAVE_ID`; cut `CUT_LIGHTEN` and `0`.
 1. **`Python/hand_to_wekinator.py`:** This code captures mirrored HD webcam video and uses MediaPipe's `hand_landmarker.task` model to turn hand landmarks into 3 simple, normalised numbers. This keeps tracking reliable regardless of lighting or how far you stand from the camera. It also includes a 5-frame memory buffer so brief tracking glitches don't interrupt two-hand gestures, and a centre-zone snap (`0.30 ≤ x ≤ 0.70`) that locks middle-screen hands into Class 3 before streaming the data to Wekinator over OSC (`/wek/inputs`, port `6448`).
 2. **`Wekinator/WekinatorProjectfinal/`:** Configured with **3 inputs**, **1 output** using Wekinator's **All classifiers (default: k-Nearest Neighbour)** setting, and **6 classes**, it classifies incoming features in real time and sends the predicted class (`1`–`6`) over OSC (`/wek/outputs`, port `12000`).
 3. **`Processing/wave_fabric_bridge/wave_fabric_bridge.pde`:** This code displays the active wave mode on screen and passes commands from Wekinator over USB to the Arduino Serial Monitor. To keep the movement smooth, it waits until Wekinator predicts the same gesture **3 frames in a row (`NEEDED = 3`)** before switching modes, preventing split-second camera glitches from making the motors twitch—and automatically sends `'6'` (`All Stop`) when you close the window so the motors turn off safely.
-4. **`Arduino/waves_final/waves_final.ino`:** We used Claude Sonnet 5.5 to explain the AccelStepper library. We used the `AccelStepper` library to drive all three motors simultaneously without blocking the loop, it listens over USB (`9600` baud) for commands `'1'`–`'6'` from Processing and smoothly switches each cam between slow (`200` steps/s), fast (`600` steps/s), and stopped states (0).
+4. **`Arduino/waves_final/waves_final.ino`:** We used the `AccelStepper` library to drive all three motors simultaneously without blocking the loop, it listens over USB (`9600` baud) for commands `'1'`–`'6'` from Processing and smoothly switches each cam between slow (`200` steps/s), fast (`600` steps/s), and stopped states (0).
 
 
 ### Instructions for How to Run
@@ -323,4 +323,4 @@ The six gesture–response diagrams in the Interaction Model section were create
 
 The assembly guide illustrations were created from the project's CAD models with assistance from ChatGPT (OpenAI, 2026).
 
-Specific pieces of code were vibe coded with Claude sonnet 5.5. This includes most of the Python code and part of the Processing code.
+Specific pieces of code were vibe coded with Claude sonnet 5.5. This includes most of the Python code and part of the Processing code. We also used Claude Sonnet 5.5 to explain the AccelStepper library.
